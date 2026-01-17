@@ -1,0 +1,550 @@
+\documentclass[twocolumn]{article}
+
+% Packages
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{csvsimple}
+\usepackage{array}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{titlesec}
+\geometry{margin=0.8in}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{PH3203}
+\fancyhead[R]{\thepage}
+
+% Title Formatting
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+\begin{document}
+
+% Custom Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    \includegraphics[width=0.25\textwidth]{fig/IISER-K_Logo.png} \\
+    \vspace{0.5cm}
+    \Large Term Project - PH3203
+    \vspace{1.2cm}\\
+    \LARGE \textbf{Delayed Choice Quantum Eraser} \\
+    \vspace{2cm}
+    \large -- by \\
+    Ritik Dubey (22MS208) \\
+    Ankit Kumar (22MS211) \\
+    Raj Gaurav Tripathi (22MS215)
+    
+    % Abstract at bottom
+    \vspace{3cm}
+    \Large \textbf{Abstract} \\ 
+    \vspace{0.50cm}
+    \begin{minipage}{1\textwidth}
+        \centering
+        This project explores the Delayed Choice Quantum Eraser experiment (carried out by Yoon-Ho Kim and his team in 1999), a fascinating quantum mechanics
+        setup demonstrating the role of measurement in determining outcomes. By delaying the choice of whether or not to obtain the which-path information, this experiment shows that we can separate out the interference pattern from an "apparent" random distribution of photons on the screen and thus along with the help of entangled photons we can exhibit both wave-like and particle-like behaviour of photons in the same experimental setup.
+    \end{minipage}
+\end{titlepage}
+
+% Start page numbering from here
+\setcounter{page}{1}
+
+
+% Sections
+\section{Introduction}
+
+Quoting Feynman "\textit{the double-slit experiment has in it the heart of quantum mechanics. In reality, it contains the only mystery}”. \\
+\\
+The delayed choice quantum eraser experiment is the culmination of over two centuries of exploration into the nature of light and matter, beginning with Young’s 1801 double-slit experiment that established light’s wave nature. But then Einstein’s 1905 photon theory followed by de Broglie’s matter waves hypothesis and Bohr’s principle of complementarity led to the notion of Wave-Particle duality.  Wheeler’s 1978 delayed choice experiment proposal abandoned the notion of the photons adapting to either wave or particle nature "a priori" with respect to the experimental setup. Then in 1982 Scully and Drühl introduced the notion of quantum eraser and suggested a setup that could show both particle and wave behaviour (in terms of interference fringes) without using the notion of \textit{Uncertainity principle}. In 1999, Kim et al. experimentally confirmed the quantum eraser setup (of 1982), revealing how entangled particles can exhibit interference depending on whether which-path information is preserved or erased—even after their detection. This experiment highlights the central role of measurement in quantum mechanics and continues to challenge classical notions of time and causality.
+
+
+\section{Elements of Theory}
+
+\section*{Complementarity}
+
+
+
+The principle of $complementarity$ asserts that certain pairs of quantum observables—such as position and momentum, or phase and particle number—are mutually exclusive in measurement: precise knowledge of one necessarily implies maximal uncertainty in the other. This foundational concept encapsulates both the uncertainty principle and wave-particle duality, reflecting the intrinsic limits of simultaneous observability in quantum systems.
+
+\subsubsection*{Mathematical Description }
+
+In quantum mechanics, physical quantities are represented by operators known as observables. These are self-adjoint operators acting on a Hilbert space. Two observables $\hat{A}$ and $\hat{B}$ are said to be \textit{incompatible} if their commutator is non-zero:
+\[
+[\hat{A}, \hat{B}] := \hat{A}\hat{B} - \hat{B}\hat{A} \neq 0
+\]
+Incompatible observables do not share a complete set of eigenstates and cannot be simultaneously measured with arbitrary precision.
+
+A fundamental example is the canonical commutation relation between position and momentum:
+\[
+[\hat{x}, \hat{p}] = i\hbar
+\]
+
+Another formalism is through \textit{mutually unbiased bases} (MUBs). In an $N$-dimensional Hilbert space, two orthonormal bases $\{ |a_j\rangle \}$ and $\{ |b_k\rangle \}$ are said to be mutually unbiased if:
+\[
+|\langle a_j | b_k \rangle|^2 = \frac{1}{N} \quad \text{for all } j, k \in \{1, \dots, N\}
+\]
+This implies that measurement in one basis gives completely random outcomes in the other. Observables corresponding to such bases are complementary.
+
+For each degree of freedom, the dynamical variables are represented as a pair of complementary observables.
+
+
+
+
+
+\section*{Entanglement}
+Quantum entanglement is a phenomenon where two or more particles become linked in such a way that the state of one particle is instantly connected to the state of the other(s), no matter how far apart they are. This means that measuring one particle immediately affects the outcome of the other, even if they’re light-years apart. It’s one of the most surprising and non-intuitive features of quantum mechanics.
+
+\section*{Wheeler's Delayed Choice Experiments}
+
+The double slit experiment dubbed as "the experiment containing the mystery of QM" only got more mysterious with the gedanken experiment proposed by John A. Wheeler. Before the advent of these experiments, it was believed that every quantum system behaves \textit{definitely} as a wave or as a particle by "\textbf{a priori}" adapting to the specific experimental situation.
+
+However, Wheeler proposed a thought experiment involving a simple Mach-Zender interferometer. The setup is as shown :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{fig/IMG_20250502_231800.jpg}
+    \caption{ Delayed Choice Experiment using Mach-Zender Interferometer}
+\end{figure}
+
+Using a single-photon source, Wheeler proposed that when the second beamsplitter (BS2) is removed the photons behave as a particle (i.e. they reach the detectors in the form of lumps) but when the beamsplitter is inserted they exhibit wavelike property (and reach in only one of the detectors) and since this choice of placing the beamsplitter or not is made after the photon (from the source) has entered the interferometer hence termed the \textit{"Delayed choice experiments"}. 
+
+
+Actual realizations of this setup carried out in 2007 (by Jacques et al.) supported the Wheeler's proposition and hence this led to the conclusion that\textit{ no quantum particles have their property fixed \textit{"a priori"} according to the experimental conditions. }
+
+\section*{Quantum Eraser}
+
+The \textbf{quantum eraser} is a thought experiment (and real experiment) that demonstrates how the availability of information affects the behavior of quantum particles. It works as follows:
+
+\begin{itemize}
+    \item A particle (such as a photon) passes through a double-slit and would normally produce an interference pattern, behaving like a wave.
+    \item If we obtain which-path information (i.e., know which slit it went through), the interference pattern disappears, and the particle behaves like a classical particle.
+    \item If we later erase the which-path information, the interference pattern can reappear.
+\end{itemize}
+
+Which-path information can be obtained by tagging the photon using various properties. For instance, we can assign different polarizations to each slit—horizontal for slit 1 and vertical for slit 2—or use entangled photons, where the twin photon carries the path information. \textit{Even if this tagged information is not measured, the possibility of distinguishing the paths is enough to eliminate interference.}
+
+\textbf{Example}\\
+If polarization was used to tag the paths, placing a diagonal polarizer (at 45$^\circ$) before the detector mixes the horizontal and vertical polarizations. As a result, it becomes impossible to know which slit the photon came from, and the interference pattern reappears.
+\\
+The quantum eraser demonstrates a key principle of quantum mechanics: \textit{it is our knowledge—or lack of it—that determines whether photon behave like waves or particles}.
+
+\section*{What is SPDC?}
+\textbf{SPDC} stands for \textit{Spontaneous Parametric Down-Conversion}. It is a quantum optical process used to generate pairs of entangled photons from a single high-energy photon.
+
+In SPDC, a photon from a laser source (usually ultraviolet or blue) enters a special nonlinear crystal such as beta-barium borate (BBO). Inside the crystal:
+
+\begin{itemize}
+    \item The photon spontaneously splits into two lower-energy photons, called the \textbf{signal} and \textbf{idler} photons.
+    \item Energy and momentum are conserved:
+    \begin{itemize}
+        \item \textbf{Energy conservation:} \(\omega_p = \omega_s + \omega_i\)
+        \item \textbf{Momentum conservation (phase matching):} \(\vec{k}_p = \vec{k}_s + \vec{k}_i\)
+    \end{itemize}
+    \item  the researchers used \textbf{Type-II phase-matched beta barium borate (BBO) crystals} to produces photon pairs with \textbf{orthogonal polarizations}, which is essential for generating entanglement in the polarization degree of freedom.
+\end{itemize}
+
+Here, \(\omega\) and \(\vec{k}\) denote the frequency and wavevector respectively, and the subscripts \(p\), \(s\), and \(i\) refer to the \textbf{pump}, \textbf{signal}, and \textbf{idler} photons.
+
+\section*{Glan-Thompson prism}
+
+A \textit{Glan-Thompson prism} is a polarizing prism that is used to separate the incident beam into two separate beams of orthogonal polarization states.
+
+It uses two optically cemented calcite prisms with their parallel optical axes (the direction along which light can pass without being separated into two beams) perpendicular to the plane of reflection.
+Using total internal reflection separation at the glass-cement interface, "s-polarised light" is transmitted while the "p-polarised" one gets deflected.
+
+Here is a picture of the prism.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Glan-thompson.png}
+    \caption{A Glan-Thompson Prism}
+\end{figure}
+
+
+\section*{Beam Splitter} 
+When we focus on scattering of light, due to interference, we observe different situations like reflection, refraction, diffraction, etc. We design objects to tune these phenomena (mostly reflection and transmission), known as $beam splitter$. 
+
+There are several types, notably plate, cube, polarizing, and dichroic beam splitters, each engineered for specific splitting ratios, wavelength ranges, and polarization properties. In the single-photon picture, a beam splitter implements a unitary transformation in the wave function of the photon, creating a coherent superposition of 'taking both paths' and imprinting characteristic phase shifts on reflection and transmission. Upon detection, the wave function collapses, yielding probabilistic outcomes consistent with quantum mechanics, and enabling phenomena such as interference fringes even at the level of individual photons. 
+
+
+
+\section{Experimental Setup}
+
+The experiment demonstrates a delayed-choice quantum eraser, based on quantum entanglement and interference. A schematic of the actual setup is shown in Fig. 2 of the referenced paper. The core idea is to test whether information about the path taken by a photon (which-path information) can be ``erased'' \textit{after} the photon has already been detected---probing the nature of quantum measurement and causality.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{fig/Screenshot 2025-05-03 at 10.27.01 PM.png}
+    \caption{Schematic of the actual experimental setup}
+    \label{fig:enter-label}
+\end{figure}
+\subsection*{Photon Pair Generation}
+A 351.1 nm Argon-ion pump laser is used to produce entangled photon pairs via spontaneous parametric down-conversion (SPDC) in a nonlinear $\beta$-Barium Borate (BBO) crystal. The pump laser is passed through a double slit, creating two regions (A and B) on the BBO crystal where photon pairs can originate.
+
+Each pair consists of a signal photon (photon 1) and an idler photon (photon 2), which are entangled and have orthogonal polarizations (type-II phase matching). The pair could be generated either in region A or region B, but not both simultaneously.
+
+\subsection*{Separation and Detection of the Signal Photon}
+The signal photon (photon 1) is directed toward detector D0 through a lens, which ensures the ``far-field'' condition (effectively placing D0 at the Fourier transform plane of the source). D0 can be scanned along the x-axis using a stepper motor to record interference patterns. Since the signal and idler photons are entangled, any information retrieved from the idler photon also affects the description of the signal photon’s behavior.
+
+\subsection*{Interferometric Path of the Idler Photon}
+The idler photon (photon 2) is routed through a specially designed interferometer with two possible paths: A or B. These correspond to where the photon pair originated. The path includes:
+\begin{itemize}
+    \item Two 50:50 beam splitters (BSA and BSB) on paths A and B, respectively,
+    \item Two mirrors (MA and MB) redirecting the photons toward a third beam splitter (BS),
+    \item Four detectors (D1, D2, D3, D4) at the output paths:
+    \begin{itemize}
+        \item \textbf{D1 and D2}: Erase which-path information via interference at BS,
+        \item \textbf{D3 and D4}: Preserve which-path information by measuring photons directly from path A or B.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Delayed Choice Design}
+The optical path from the crystal to D0 is approximately 2.3 meters shorter than the path to the beam splitters BSA/BSB. This ensures that photon 1 is detected before photon 2 reaches the interferometer, implementing a ``delayed choice.'' Thus, the decision of whether the which-path information is preserved or erased is made \textit{after} the signal photon has already been detected.
+
+\subsection*{Coincidence Measurements}
+Coincidences between D0 and each of the detectors D1--D4 are recorded:
+\begin{itemize}
+    \item \textbf{R01 and R02} (coincidences with D1 and D2): Show interference fringes depending on D0’s position—evidence of wave-like behavior (which-path information erased).
+    \item \textbf{R03 and R04} (coincidences with D3 and D4): Show no interference—evidence of particle-like behavior (which-path information retained).
+\end{itemize}
+
+\subsection*{Key Observations}
+\begin{itemize}
+    \item The interference pattern appears or disappears \textit{based on which idler detector fired}, not on anything done directly to the signal photon.
+    \item The choice to preserve or erase which-path information is made randomly and \textit{after} the detection of the signal photon.
+    \item This demonstrates that the act of measurement and the availability of information can retroactively affect the interpretation of a quantum event.
+\end{itemize}
+
+
+
+
+\section{Calculation}
+
+
+Our task is to derive the interference patterns for \( R_{01} \), \( R_{02} \),\( R_{03} \) and \( R_{04} \), which resemble a double-slit experiment but arise from quantum entanglement.
+
+\subsubsection*{Step 1: Define the Two–Photon State}
+
+Since SPDC produces entangled photons, let’s model the state. The paper approximates the state as a superposition of pairs emitted from regions A or B:
+
+\[
+|\Psi\rangle = \frac{1}{\sqrt{2}} \left( a_{sA}^{\dagger} a_{iA}^{\dagger} + a_{sB}^{\dagger} a_{iB}^{\dagger} \right) |0\rangle
+\]
+
+\begin{itemize}
+    \item \( a_{sA}^{\dagger} \): Creates a signal photon from slit A.
+    \item \( a_{iA}^{\dagger} \): Creates an idler photon from slit A.
+    \item Similarly for B.
+    \item \( |0\rangle \): Vacuum state.
+    \item The \(\frac{1}{\sqrt{2}}\) ensures normalization.
+\end{itemize}
+
+This is a simplified discrete-mode version of the continuous SPDC state, focusing on emissions from A or B, justified by the double-slit separation of the pump.
+
+\subsubsection*{Step 2: Joint Detection Rates}
+
+The joint detection rate \( R_{0j} \) is the probability of detecting the signal photon at \( D_0 \) (position \( x \)) and the idler at \( D_j \) (where \( j = 1, 2, 3, 4 \)). Per Glauber's quantum optics formalism:
+
+\[
+R_{0j} \propto \left| \langle 0|E_j^{(+)}, E_0^{(+)}| \Psi \rangle \right|^2
+\]
+
+\begin{itemize}
+    \item \( E_0^{(+)} \): Positive-frequency field operator at \( D_0 \).
+    \item \( E_j^{(+)} \): Field operator at \( D_j \).
+    \item The superscript \((+)\) denotes the photon annihilation part.
+\end{itemize}
+
+Define the two-photon amplitude:
+
+\[
+\Psi(x, t_j) = \langle 0|E_j^{(+)}, E_0^{(+)}| \Psi \rangle
+\]
+
+So, \( R_{0j} \propto |\Psi(x, t_j)|^2 \).
+
+\subsubsection*{Step 3: Signal Photon Field at \( D_0 \)}
+
+The signal photon from A or B passes through a lens to \( D_0 \) at position \( x \) on the focal plane.  
+The field operator is a superposition of contributions from both slits:  
+
+\[
+E_0^{(+)} \propto a_{sA}\phi_A(x) + a_{sB}\phi_B(x)
+\]
+
+\begin{itemize}
+    \item \(\phi_A(x)\): Spatial amplitude for a signal photon from slit A at \( x \).  
+    \item \(\phi_B(x)\): Same for slit B.
+\end{itemize}
+
+Since \( D_0 \) is in the lens’s focal plane, \(\phi_A(x)\) and \(\phi_B(x)\) are Fourier transforms of the slit functions (Fraunhofer diffraction). For a slit of width \( a \):
+
+\[
+T(\xi) = 
+\begin{cases} 
+1 & |\xi| \leq a/2 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+Centered at \(\xi = -d/2\) (slit A) or \( d/2 \) (slit B), the amplitude at \( x \) is:
+
+\[
+\phi_A(x) \propto \int_{-d/2-a/2}^{-d/2+a/2} e^{-i\frac{2\pi}{\lambda f}x\xi}d\xi
+\]
+
+Shift variables: \(\xi' = \xi + d/2\), so limits become \(-a/2\) to \( a/2 \):  
+
+\[
+\phi_A(x) \propto e^{i\frac{2\pi}{\lambda f}x(d/2)} \int_{-a/2}^{a/2} e^{-i\frac{2\pi}{\lambda f}x\xi'}d\xi'
+\]
+
+\[
+= e^{i\frac{\pi dx}{\lambda f}} \cdot \frac{\sin\left(\frac{\pi ax}{\lambda f}\right)}{\frac{\pi ax}{\lambda f}} \propto e^{i\theta} \sin c\left(\frac{\pi ax}{\lambda f}\right)
+\]
+
+where \(\theta = \frac{\pi dx}{\lambda f}\), and \(\sin c(u) = \frac{\sin u}{u}\).
+
+For slit B:
+
+\[
+\phi_B(x) \propto e^{-i\frac{\pi dx}{\lambda f}} \sin c\left(\frac{\pi ax}{\lambda f}\right)
+\]
+
+Assuming equal amplitudes:
+
+\[
+\phi_A(x) = C e^{i\theta} s(x), \quad \phi_B(x) = C e^{-i\theta} s(x)
+\]
+
+\[
+s(x) = \sin c\left(\frac{\pi ax}{\lambda f}\right), \quad \theta = \frac{\pi dx}{\lambda f}
+\]
+
+\subsubsection*{Step 4: Idler Photon Fields}
+
+The idler photon's path involves beam splitters (BSA, BSB, BS). The paper gives:
+
+\[
+\Psi(t_0, t_1) = A(t_0, t_1^A) + A(t_0, t_1^B)
+\]
+
+\[
+\Psi(t_0, t_2) = A(t_0, t_2^A) - A(t_0, t_2^B)
+\]
+
+This suggests:
+
+\begin{itemize}
+    \item \textbf{Idler photon at \( D_1 \):}\( E_1^{(+)} \propto a_{iA} + a_{iB} \) (for \( D_1 \)).
+     \item \textbf{Idler photon at \( D_2 \):}\( E_2^{(+)} \propto a_{iA} - a_{iB} \) (for \( D_2 \)).  
+    
+\end{itemize}
+
+This arises from BS combining paths A and B with a phase difference (e.g., transmission vs. reflection).
+\begin{itemize}
+    
+
+    \item \textbf{Idler photon at \( D_3 \):}
+    \[
+    E_3^{(+)} \propto a_{iA} \quad \text{(transmitted through BSA)}
+    \]
+    
+    \item \textbf{Idler photon at \( D_4 \):}
+    \[
+    E_4^{(+)} \propto a_{iB} \quad \text{(transmitted through BSB)}
+    \]
+\end{itemize}    
+
+
+\subsubsection*{Step 5: Compute Two-Photon Amplitudes}
+
+The joint detection amplitudes are:
+\[
+\Psi(t_0, t_3) = \langle 0|E_3^{(+)} E_0^{(+)} | \Psi \rangle, \quad \Psi(t_0, t_4) = \langle 0|E_4^{(+)} E_0^{(+)} | \Psi \rangle
+\]
+
+\subsubsection*{Derivation for \(D_3\):}
+1. Apply \(E_0^{(+)}\) to \(|\Psi\rangle\):
+\[
+E_0^{(+)}|\Psi\rangle = \frac{1}{\sqrt{2}} \left( \phi_A(x)a_{iA}^{\dagger} + \phi_B(x)a_{iB}^{\dagger} \right)|0\rangle
+\]
+
+2. Apply \(E_3^{(+)}\):
+\[
+E_3^{(+)}E_0^{(+)}|\Psi\rangle = \frac{1}{\sqrt{2}}\phi_A(x)|0\rangle
+\]
+
+3. Vacuum projection:
+\[
+\Psi(x, t_3) = \frac{1}{\sqrt{2}} \phi_A(x) = A(t_0, t_3^A)
+\]
+
+\subsubsection*{Derivation for \(D_4\):}
+1. Apply \(E_0^{(+)}\) to \(|\Psi\rangle\):
+\[
+E_0^{(+)} | \Psi \rangle = \frac{1}{\sqrt{2}} \left( \phi_A(x) | 1_{iA} \rangle + \phi_B(x) | 1_{iB} \rangle \right)
+\]
+
+2. Apply \(E_4^{(+)}\):
+\[
+E_4^{(+)} E_0^{(+)} | \Psi \rangle = \frac{1}{\sqrt{2}} \phi_B(x)|0\rangle
+\]
+
+3. Vacuum projection:
+\[
+\Psi(x, t_4) = \frac{1}{\sqrt{2}} \phi_B(x) = A(t_0, t_4^B)
+\]
+\subsubsection*{Physical Interpretation}
+\begin{itemize}
+    \item \(D_3/D_4\) provide which-path information (no interference).
+    \item Amplitudes depend solely on \(\phi_A(x)\) or \(\phi_B(x)\).
+\end{itemize}
+
+
+\subsubsection*{Similarly for \( D_1 \) and \( D_2 \)}
+
+Apply \( E_0^{(+)}\) to \(|\Psi\rangle\):
+
+\[
+E_0^{(+)}|\Psi\rangle \propto \left(a_{sA}\phi_A + a_{sB}\phi_B\right) \frac{1}{\sqrt{2}} \left(a_{sA}^{\dagger}a_{iA}^{\dagger} + a_{sB}^{\dagger}a_{iB}^{\dagger}\right)|0\rangle
+\]
+
+\[
+= \frac{1}{\sqrt{2}} \left(\phi_A a_{iA}^{\dagger} + \phi_B a_{iB}^{\dagger}\right)|0\rangle
+\]
+
+For \( D_1 \):
+
+\[
+\Psi(x, t_1) \propto \langle 0|(a_{iA} + a_{iB}) \cdot \frac{1}{\sqrt{2}} \left(\phi_A a_{iA}^{\dagger} + \phi_B a_{iB}^{\dagger}\right)|0\rangle
+\]
+
+\[
+= \frac{1}{\sqrt{2}} (\phi_A + \phi_B)
+\]
+
+For \( D_2 \):
+
+\[
+\Psi(x, t_2) \propto \frac{1}{\sqrt{2}} (\phi_A - \phi_B)
+\]
+
+\subsubsection*{Step 6: Detection Rates}
+
+
+
+
+\subsection*{For \(R_{01}\):}
+\[
+R_{01} \propto |\phi_A + \phi_B|^2 = |Cs(e^{i\theta} + e^{-i\theta})|^2 = |2Cs \cos \theta|^2 = 4C^2 s^2 \cos^2 \theta
+\]
+
+\subsection*{For \(R_{02}\):}
+
+\[
+R_{02} \propto |\phi_A - \phi_B|^2 = |Cs(e^{i\theta} - e^{-i\theta})|^2 = |2iCs \sin \theta|^2 = 4C^2 s^2 \sin^2 \theta
+\]
+
+
+\subsection*{For \(R_{03}\):}
+\[
+\phi_A(x) = C e^{i\theta} \text{sinc}\left(\frac{\pi ax}{\lambda f}\right), \quad \theta = \frac{\pi dx}{\lambda f}
+\]
+\[
+R_{03} \propto |\phi_A(x)|^2 = |C|^2 \text{sinc}^2\left(\frac{\pi ax}{\lambda f}\right)
+\]
+
+\subsection*{For \(R_{04}\):}
+\[
+\phi_B(x) = C e^{-i\theta} \text{sinc}\left(\frac{\pi ax}{\lambda f}\right)
+\]
+\[
+R_{04} \propto |\phi_B(x)|^2 = |C|^2 \text{sinc}^2\left(\frac{\pi ax}{\lambda f}\right)
+\]
+After Substitutions:
+
+\[
+R_{01} \propto \text{sinc}^2 \left( \frac{\pi ax}{\lambda f} \right) \cos^2 \left( \frac{\pi dx}{\lambda f} \right)
+\]
+
+\[
+R_{02} \propto \text{sinc}^2 \left( \frac{\pi ax}{\lambda f} \right) \sin^2 \left( \frac{\pi dx}{\lambda f} \right)
+\]
+
+The \(\text{sinc}^2\) term is the single-slit diffraction envelope, and \(\cos^2\) or \(\sin^2\) are the double-slit interference terms, with a \(\pi\) phase shift between them.
+\vspace{0.5cm}
+The detection rates exhibit only single-slit diffraction patterns:
+\[
+R_{03} \propto \text{sinc}^2\left(\frac{\pi ax}{\lambda f}\right), \quad R_{04} \propto \text{sinc}^2\left(\frac{\pi ax}{\lambda f}\right)
+\]
+
+\noindent Key conclusions:
+\begin{itemize}
+    \item No \(\cos^2/\sin^2\) terms appear because which-path information is preserved.
+    \item Contrast with \(R_{01}/R_{02}\) (interference terms exist due to erased path information).
+    \item Symmetric results for \(D_3\) and \(D_4\) reflect identical slit geometries.
+\end{itemize}
+
+\section{Experimental Results}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig/fig2.png}
+    \caption{R01 and R02 against the x coordinates of detector D0.Standard Young’s double-slit interference patterns are observed. Note the $\pi$ phase shift between R01 and R02. }
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig/fig3.png}
+    \caption{R01 + R02 is shown. The single counting rate of D0 is constant over the scanning range.}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig/fig4.png}
+    \caption{R03 is shown. Absence of interference is clearly demonstrated.}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection*{Connection between rates:}
+
+As we can see from the expression of $R_{01}$ and $R_{02}$ that 
+
+\[
+R_{01} + R_{02} \propto \text{sinc}^2\left( \frac{\pi a x}{\lambda f} \right) = R_{03}
+\]
+
+The graphs obtained experimentally exhibit very close resemblance between the sum of $R_{01}$, $R_{02}$ to that of $R_{03}$ and $R_{04}$
+
+
+
+
+\section{Conclusion}
+In conclusion, the experimental results demonstrate the possibility of determining particle-like and wave-like behaviors of a photon via quantum entanglement. The which-path or both-path information of a quantum can be erased or marked by its entangled twin even after the registration of the quantum itself.
+
+
+
+
+
+
+\section{References}
+\begin{enumerate}
+    \item Yoon-Ho Kim, R. Yu, S.P. Kulik, Y.H. Shih, and M.O. Scully, “Delayed ‘Choice’ Quantum Eraser,” \textit{Phys. Rev. Lett.}, vol. 84, no. 1, pp. 1–5, 2000.
+    \item John Archibald Wheeler, “The ‘Past’ and the ‘Delayed-Choice’ Double-Slit Experiment,” in \textit{Mathematical Foundations of Quantum Theory}, A.R. Marlow, Ed. Academic Press, 1978.
+    \item Jacques, V., et al. “Experimental Realization of Wheeler’s Delayed-Choice Gedanken Experiment,” \textit{Science}, vol. 315, no. 5814, pp. 966–968, 2007.
+    \item M.O. Scully and K. Drühl, “Quantum eraser: A proposed photon correlation experiment concerning observation and ‘delayed choice’ in quantum mechanics,” \textit{Phys. Rev. A}, vol. 25, no. 4, pp. 2208–2213, 1982.
+     \item A. Heuer, G. Pieplow, and R. Menzel, “Taming the Delayed Choice Quantum Eraser,” \textit{Foundations of Physics}, vol. 45, no. 3, pp. 295–305, 2015.
+    \item Griffiths, David J. \textit{Introduction to Quantum Mechanics}, 2nd ed., Pearson Education, 2004.
+    \item  R.J. Glauber, Phys. Rev. 130, 2529 (1963); 131, 2766 (1963)
+    \item  R. Feynman et al., The Feynman Lectures on Physics (Addison Wesley, Reading, 1965), Vol. III
+    \item Home, D. Bohr’s philosophy of wave-particle complementarity. Reson 18, 905–916 (2013)
+    \item Polarization Properties of Prisms and Reflectors - SPIE
+\end{enumerate}
+
+\end{document}
